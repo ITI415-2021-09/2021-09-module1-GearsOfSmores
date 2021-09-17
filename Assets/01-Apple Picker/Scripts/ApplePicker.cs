@@ -7,13 +7,13 @@ public class ApplePicker : MonoBehaviour
     [Header("Set in Inspector")]
 
     public GameObject basketPrefab;
-    public int nnumBaskets = 3;
+    public int numBaskets = 3;
     public float basketBottomY = -14f;
     public float basketSpacingY = 2f;
 
     private void Start()
     {
-        for (int i=0; i<nnumBaskets; i++)
+        for (int i=0; i<numBaskets; i++)
         {
              GameObject tBasketGO = Instantiate<GameObject>(basketPrefab);
                 Vector3 pos = Vector3.zero;
@@ -21,4 +21,5 @@ public class ApplePicker : MonoBehaviour
              tBasketGO.transform.position = pos;
         }
     }
+   
 }
