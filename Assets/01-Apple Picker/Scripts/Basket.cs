@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-<<<<<<< HEAD
+
 using UnityEngine.UI;
 public class Basket : MonoBehaviour
 {
@@ -17,18 +17,10 @@ public class Basket : MonoBehaviour
 
         scoreGT.text = "0"; // Set the starting number of the points to O
     }
+   
     void Update()
     {
 
-
-=======
-
-public class Basket : MonoBehaviour
-{
-    
-    void Update()
-    {
->>>>>>> 853347b8ed6ca48e52a5854016615fb6c21edf47
         Vector3 mousePos2d = Input.mousePosition;
 
         mousePos2d.z = -Camera.main.transform.position.x;
@@ -37,7 +29,7 @@ public class Basket : MonoBehaviour
         Vector3 pos = this.transform.position;
         pos.x = mousePos3d.x;
         this.transform.position = pos;
-<<<<<<< HEAD
+
         
     }
 
@@ -69,18 +61,11 @@ public class Basket : MonoBehaviour
 
     }
 
-}
-  
-=======
 
-    }
-    void OnCollisionEnter(Collision coll )
-    {
-        GameObject collidedWith = coll.gameObject;
-        if( collidedWith.tag == "Apple")
-        {
-            Destroy(collidedWith);
-        }
-    }
+
 }
->>>>>>> 853347b8ed6ca48e52a5854016615fb6c21edf47
+
+
+
+
+

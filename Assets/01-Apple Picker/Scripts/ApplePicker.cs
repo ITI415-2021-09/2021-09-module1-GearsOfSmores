@@ -15,7 +15,7 @@ public class ApplePicker : MonoBehaviour
 
     private void Start()
     {
-<<<<<<< HEAD
+
 
         basketList = new List<GameObject>();
 
@@ -49,9 +49,9 @@ public class ApplePicker : MonoBehaviour
         Destroy(tBasketGo);
 
         if ( basketList.Count == 0)
-=======
+
         for (int i=0; i<numBaskets; i++)
->>>>>>> 853347b8ed6ca48e52a5854016615fb6c21edf47
+
         {
             SceneManager.LoadScene("Main-ApplePicker");
         }
