@@ -20,17 +20,6 @@ public class Basket : MonoBehaviour
     {
 
 
-        movenment();
-        if (score > HighScore.highScore)
-        {
-            HighScore.highScore = score;
-        }
-
-    }
-
-    void movenment()
-    {
-
         Vector3 mousePos2d = Input.mousePosition;
 
         mousePos2d.z = -Camera.main.transform.position.x;
@@ -39,8 +28,9 @@ public class Basket : MonoBehaviour
         Vector3 pos = this.transform.position;
         pos.x = mousePos3d.x;
         this.transform.position = pos;
-
+        
     }
+
 
 
     void OnCollisionEnter(Collision coll)
@@ -58,10 +48,14 @@ public class Basket : MonoBehaviour
 
             // Convert the score back to a string and display it
             scoreGT.text = score.ToString();
-           
+            if (score > HighScore.highScore)
+            {
+                HighScore.highScore = score;
+            }
+
 
         }
-        
+
 
     }
 
