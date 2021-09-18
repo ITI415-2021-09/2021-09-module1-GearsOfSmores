@@ -52,9 +52,9 @@ public class AppleTree : MonoBehaviour
 
     }
 
-    void DroppApple()
+    void DropApple()
     {
-        GameObject apple = Instantiate < GameObject>(applePrefab);
+        GameObject apple = Instantiate<GameObject>( applePrefab );
             apple.transform.position = transform.position;
            Invoke("DropApple", secondsBetweenAppleDrop);
     }
