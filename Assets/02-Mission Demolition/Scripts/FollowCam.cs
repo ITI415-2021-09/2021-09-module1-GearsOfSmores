@@ -43,7 +43,7 @@ public class FollowCam : MonoBehaviour
                 }
             }
         }
-        
+        // Limit the X & Y to the minimum values
         destination.x = Mathf.Max(minXY.x, destination.x);
         destination.y = Mathf.Max(minXY.y, destination.y); 
         // Interpolate from the current Camera position toward destination
