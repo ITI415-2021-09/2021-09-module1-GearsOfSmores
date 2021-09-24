@@ -21,9 +21,7 @@ public class FollowCam : MonoBehaviour
     {
         // if there's only one line following an if, it doesn't need braces
         if (POI == null) return; // return if there is no poi                  
-                                 // Get the position of the poi
-                                 //-- Vector3 destination = POI.transform.position;
-                                 // Limit the X & Y to minimum values'
+                                
         Vector3 destination;
         if (POI == null)
         {
@@ -35,9 +33,12 @@ public class FollowCam : MonoBehaviour
 
             if (POI.tag == "Projectile")
             {
+                // if it is sleeping 
                 if(POI.GetComponent<Rigidbody>().IsSleeping())
                 {
+                    // return to the default view
                     POI = null;
+                    // in the next update
                     return;
                 }
             }

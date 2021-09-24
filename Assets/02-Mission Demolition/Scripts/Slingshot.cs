@@ -54,7 +54,7 @@ public class Slingshot : MonoBehaviour
             aimingMode = true;
             // Instantiate a Projectile
             projectile = Instantiate(prefabProjectile) as GameObject;
-
+            // Start it at the launchPoint
              projectile.transform.position = launchPos;
             // Set it to isKinematic for now
             projectileRigidbody = projectile.GetComponent<Rigidbody>();
@@ -72,10 +72,11 @@ public class Slingshot : MonoBehaviour
         Vector3 mousePos2D = Input.mousePosition;
         mousePos2D.z = -Camera.main.transform.position.z;
         Vector3 mousePos3D = Camera.main.ScreenToWorldPoint(mousePos2D);
+
         // Find the delta from the launchPos to the mousePos3D
         Vector3 mouseDelta = mousePos3D - launchPos;
-        // Limit mouseDelta to the radius of the Slingshot SphereCollider
 
+        // Limit mouseDelta to the radius of the Slingshot SphereCollider
         float maxMagnitude = this.GetComponent<SphereCollider>().radius;
         if (mouseDelta.magnitude > maxMagnitude)
         {
@@ -85,6 +86,7 @@ public class Slingshot : MonoBehaviour
         // Move the projectile to this new position
         Vector3 projPos = launchPos + mouseDelta;
         projectile.transform.position = projPos;
+
         if (Input.GetMouseButtonUp(0))
         {                                         
             // The mouse has been released

@@ -5,11 +5,14 @@ using UnityEngine;
 public class ProjectileLine : MonoBehaviour
 {
     static public ProjectileLine S; // Singleton
+
     [Header("Set in Inspector")]
     public float minDist = 0.1f;
     private LineRenderer line;
     private GameObject _poi;
     private List<Vector3> points;
+
+
     void Awake()
     {
         S = this;// Set the singleton
@@ -21,6 +24,7 @@ public class ProjectileLine : MonoBehaviour
         // Initialize the points List
         points = new List<Vector3>();
     }
+
     // This is a property (that is, a method masquerading as a field)
     public GameObject poi
     {
@@ -40,6 +44,7 @@ public class ProjectileLine : MonoBehaviour
             }
         }
     }
+
     // This can be used to clear the line directly
     public void Clear()
     {
@@ -51,6 +56,7 @@ public class ProjectileLine : MonoBehaviour
     {
         // This is called to add a point to the line
         Vector3 pt = _poi.transform.position;
+        // if we have started drawing the line, *
         if (points.Count > 0 && (pt - lastPoint).magnitude < minDist)
         {
             // If the point isn't far enough from the last point, it returns
@@ -65,7 +71,6 @@ public class ProjectileLine : MonoBehaviour
             line.positionCount = 2;
             // Sets the first two points
             line.SetPosition(0, points[0]);
-
             line.SetPosition(1, points[1]);
             // Enables the LineRenderer
             line.enabled = true;
@@ -79,6 +84,7 @@ public class ProjectileLine : MonoBehaviour
             line.enabled = true;
         }
     }
+
     // Returns the location of the most recently added point
     public Vector3 lastPoint
     {
@@ -92,6 +98,8 @@ public class ProjectileLine : MonoBehaviour
             return (points[points.Count - 1]);
         }
     }
+
+
     void FixedUpdate()
     {
         if (poi == null)

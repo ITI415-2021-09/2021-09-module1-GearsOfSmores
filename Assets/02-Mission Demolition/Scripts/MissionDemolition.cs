@@ -18,9 +18,9 @@ public class MissionDemolition : MonoBehaviour
     public Text uitLevel;  // The UIText_Level Text
     public Text uitShots;  // The UIText_Shots Text
     public Text uitButton; // The Text on UIButton_View
-
     public Vector3 castlePos; // The place to put castles
     public GameObject[] castles;   // An array of the castles
+
     [Header("Set Dynamically")]
     public int level;     // The current level
     public int levelMax;  // The number of levels
@@ -28,6 +28,9 @@ public class MissionDemolition : MonoBehaviour
     public GameObject castle;    // The current castle
     public GameMode mode = GameMode.idle;
     public string showing = "Show Slingshot"; // FollowCam mode
+
+
+
     void Start()
     {
         S = this; // Define the Singleton
@@ -35,6 +38,7 @@ public class MissionDemolition : MonoBehaviour
         levelMax = castles.Length;
         StartLevel();
     }
+
     void StartLevel()
     {
         // Get rid of the old castle if one exists
@@ -57,15 +61,19 @@ public class MissionDemolition : MonoBehaviour
             ProjectileLine.S.Clear();
             // Reset the goal
             Goal.goalMet = false;
+
             UpdateGUI();
+
             mode = GameMode.playing;
         }
-        void UpdateGUI()
-        {
+    }
+
+    void UpdateGUI()
+    {
             // Show the data in the GUITexts
             uitLevel.text = "Level: " + (level + 1) + " of " + levelMax;
             uitShots.text = "Shots Taken: " + shotsTaken;
-        }
+    }
         void Update()
         {
             UpdateGUI();
@@ -90,10 +98,7 @@ public class MissionDemolition : MonoBehaviour
             StartLevel();
         }
 
-
-
-
-         void SwitchView(string eView = "")
+       public void SwitchView(string eView = "")
         {                                   
             if (eView == "")
             {
@@ -122,10 +127,4 @@ public class MissionDemolition : MonoBehaviour
         {                                            // d
             S.shotsTaken++;
         }
-    }
-
-   
-
-
-
-}
+    } 
