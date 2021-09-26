@@ -95,6 +95,11 @@ public class Slingshot : MonoBehaviour
             projectileRigidbody.velocity = -mouseDelta * velocityMult;
             FollowCam.POI = projectile;
             projectile = null;
+
+
+            // When Slingshot calls MissionDemoliton.ShotsFired, it causes MissionDemolition.S.shotsTaken to icrement.
+            MissionDemolition.ShotFired();
+            ProjectileLine.S.poi = projectile;
         } 
 
     }

@@ -19,9 +19,7 @@ public class FollowCam : MonoBehaviour
     }
     void FixedUpdate()
     {
-        // if there's only one line following an if, it doesn't need braces
-        if (POI == null) return; // return if there is no poi                  
-                                
+
         Vector3 destination;
         if (POI == null)
         {
