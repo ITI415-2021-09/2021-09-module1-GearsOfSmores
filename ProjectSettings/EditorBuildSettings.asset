@@ -14,7 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00-Scenes/Main-MissionDemolition.unity
     guid: 36a4f7af764a74bfab5a5ff20375bcdb
-  - enabled: 1
-    path: Assets/00-Scenes/Main-Prototype 1.unity
-    guid: 84930580229bb4f138179e160aab9b89
-  m_configObjects: {}
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: b471238be32d3ba4bbd17ee3a1677b68, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 0c42f4a1816314d47bb4bcb62e664b3b, type: 2}

@@ -50,9 +50,9 @@ public class Basket : MonoBehaviour
 
             // Convert the score back to a string and display it
             scoreGT.text = score.ToString();
-            if (score > HighScore.highScore)
+            if (score > HighScore.score)
             {
-                HighScore.highScore = score;
+                HighScore.score = score;
             }
 
 

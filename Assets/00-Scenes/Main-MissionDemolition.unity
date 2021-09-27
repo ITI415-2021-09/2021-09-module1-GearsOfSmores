@@ -755,13 +755,13 @@ MonoBehaviour:
   uitButton: {fileID: 284686066}
   castlePos: {x: 50, y: -9.5, z: 0}
   castles:
-  - {fileID: 8576208837676879395, guid: c5088f0837aea004180bf82694f33067, type: 3}
-  - {fileID: 4034716146323803019, guid: 99614b8495b5186439d88454d5f2d04c, type: 3}
   - {fileID: 3181428513096094299, guid: c195dc37045ee26408136475e91cbd6c, type: 3}
+  - {fileID: 4034716146323803019, guid: 99614b8495b5186439d88454d5f2d04c, type: 3}
+  - {fileID: 8576208837676879395, guid: c5088f0837aea004180bf82694f33067, type: 3}
   level: 0
   levelMax: 0
   shotsTaken: 0
-  castle: {fileID: 0}
+  castle: {fileID: 3181428513096094299, guid: c195dc37045ee26408136475e91cbd6c, type: 3}
   mode: 0
   showing: Show Slingshot
 --- !u!114 &792234111
@@ -1513,7 +1513,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 4
   m_Center: {x: 0, y: 4, z: 0}
 --- !u!4 &2077501236
 Transform:

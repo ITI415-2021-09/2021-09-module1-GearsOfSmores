@@ -5,30 +5,28 @@ using UnityEngine.UI;
 
 public class HighScore : MonoBehaviour
 {
-      static public int highScore = 1000;
-
-    private void Awake()
-    {
-        // If the PlayerPrevious HighScore already exists read it
+    static public int score = 1000;
+    void Awake()
+    {                                                           
+        // If the PlayerPrefs HighScore already exists, read it
         if (PlayerPrefs.HasKey("HighScore"))
-        {
-            // Assign the high score to Highscore
-            highScore = PlayerPrefs.GetInt("HighScore");
+        {                               
+            score = PlayerPrefs.GetInt("HighScore");
         }
-        // Assign the high score to Highscore
-         PlayerPrefs.SetInt("HighScore", highScore);
-
+        // Assign the high score to HighScore
+        PlayerPrefs.SetInt("HighScore", score);                             
     }
-
     void Update()
     {
         Text gt = this.GetComponent<Text>();
-        gt.text = "High Score:"+ highScore;
-
+        gt.text = "High Score: " + score;
         // Update the PlayerPrefs HighScore if necessary
-        if (highScore > PlayerPrefs.GetInt("HighScore"))
-        {
-            PlayerPrefs.SetInt("HighScore", highScore);
+        if (score > PlayerPrefs.GetInt("HighScore"))
+        {                       
+            PlayerPrefs.SetInt("HighScore", score);
         }
     }
 }
+
+
+
