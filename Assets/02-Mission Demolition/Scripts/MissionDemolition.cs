@@ -40,12 +40,10 @@ public class MissionDemolition : MonoBehaviour
         level = 0;
         levelMax = castles.Length;
         StartLevel();
+
     }
 
-     void OnEnable()
-    {
-       
-    }
+  
 
     void StartLevel()
     {
@@ -62,14 +60,15 @@ public class MissionDemolition : MonoBehaviour
             }
             // Instantiate the new castle
             castle = Instantiate<GameObject>(castles[level]);
-            _enemies = FindObjectsOfType<Enemy>();
+            
             castle.transform.position = castlePos;
             shotsTaken = 0;
             // Reset the camera
             SwitchView("Show Both");
             ProjectileLine.S.Clear();
+            _enemies = FindObjectsOfType<Enemy>();
             // Reset the goal
-            Goal.goalMet = false;
+            // Goal.goalMet = false;
 
             UpdateGUI();
 
@@ -83,21 +82,21 @@ public class MissionDemolition : MonoBehaviour
             uitLevel.text = "Level: " + (level + 1) + " of " + levelMax;
             uitShots.text = "Shots Taken: " + shotsTaken;
     }
-        void Update()
-        {
-         //EnemiesAreAllDead();
-        UpdateGUI();
+   void Update()
+   {
+    EnemiesAreAllDead();
+    UpdateGUI();
 
-        if (killedAllEnem == true && (mode == GameMode.playing))
-        {
-            // Change mode to stop checking for level end
-            mode = GameMode.levelEnd;
-            // Zoom out
-            SwitchView("Show Both");
-            // Start the next level in 2 seconds
-            Invoke("NextLevel", 2f);
+   if (killedAllEnem == true && (mode == GameMode.playing))
+    {
+      // Change mode to stop checking for level end
+      mode = GameMode.levelEnd;
+      // Zoom out
+      SwitchView("Show Both");
+      // Start the next level in 2 seconds
+      Invoke("NextLevel", 2f);
           
-        }
+   }
        
       
             
@@ -105,16 +104,15 @@ public class MissionDemolition : MonoBehaviour
 
     private void EnemiesAreAllDead()
     {
-        foreach (Enemy enemy in _enemies)
+        foreach (var enemy in _enemies)
         {
-            // if any of the enemies are active return
-            if (enemy != null)
-                return;
+            if(enemy != null)
+            return;
         }
-        Debug.Log("All enemies are dead");
-       
-        
-        
+
+        killedAllEnem = true;
+        return;
+
     }
 
     void NextLevel()

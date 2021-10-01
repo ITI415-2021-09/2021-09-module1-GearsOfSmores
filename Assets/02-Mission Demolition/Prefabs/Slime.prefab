@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 4210014141948968146}
   - component: {fileID: 4269367868112596078}
   - component: {fileID: 7517498186217208963}
-  - component: {fileID: 3889643005870072964}
+  - component: {fileID: 1914864498062339463}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -454,7 +454,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!114 &3889643005870072964
+--- !u!114 &1914864498062339463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
