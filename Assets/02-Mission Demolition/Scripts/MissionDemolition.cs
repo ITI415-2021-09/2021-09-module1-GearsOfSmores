@@ -40,11 +40,9 @@ public class MissionDemolition : MonoBehaviour
         level = 0;
         levelMax = castles.Length;
         StartLevel();
-
     }
 
-  
-
+ 
     void StartLevel()
     {
         // Get rid of the old castle if one exists
@@ -68,7 +66,7 @@ public class MissionDemolition : MonoBehaviour
             ProjectileLine.S.Clear();
             _enemies = FindObjectsOfType<Enemy>();
             // Reset the goal
-            // Goal.goalMet = false;
+           // Goal.goalMet = false;
 
             UpdateGUI();
 
@@ -82,21 +80,21 @@ public class MissionDemolition : MonoBehaviour
             uitLevel.text = "Level: " + (level + 1) + " of " + levelMax;
             uitShots.text = "Shots Taken: " + shotsTaken;
     }
-   void Update()
-   {
-    EnemiesAreAllDead();
-    UpdateGUI();
+        void Update()
+        {
+         EnemiesAreAllDead();
+        UpdateGUI();
 
-   if (killedAllEnem == true && (mode == GameMode.playing))
-    {
-      // Change mode to stop checking for level end
-      mode = GameMode.levelEnd;
-      // Zoom out
-      SwitchView("Show Both");
-      // Start the next level in 2 seconds
-      Invoke("NextLevel", 2f);
+        if (killedAllEnem == true && (mode == GameMode.playing))
+        {
+            // Change mode to stop checking for level end
+            mode = GameMode.levelEnd;
+            // Zoom out
+            SwitchView("Show Both");
+            // Start the next level in 2 seconds
+            Invoke("NextLevel", 2f);
           
-   }
+        }
        
       
             
@@ -106,13 +104,15 @@ public class MissionDemolition : MonoBehaviour
     {
         foreach (var enemy in _enemies)
         {
-            if(enemy != null)
-            return;
+            // if any of the enemies are active return
+            if (enemy != null)
+                return;
         }
-
         killedAllEnem = true;
         return;
-
+       
+        
+        
     }
 
     void NextLevel()
